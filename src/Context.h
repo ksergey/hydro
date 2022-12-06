@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include <cstdint>
+
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
 #include <NTPClient.h>
@@ -44,6 +46,8 @@ struct Context {
   WiFiManager wifiManager;
   WiFiUDP ntpUDP = WiFiUDP();
   NTPClient timeClient = NTPClient(ntpUDP);
+
+  uint64_t nextFloodingTime = std::uint64_t(0);
 };
 
 } // namespace app
