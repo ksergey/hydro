@@ -8,30 +8,25 @@
 
 namespace app {
 
-struct State_WaitNetwork;
-
-class State_Init {
+class State_Error {
 private:
 public:
-  State_Init() = default;
+  State_Error() = default;
 
   template<typename FSM>
   void enter([[maybe_unused]] FSM& fsm, Context& ctx) {
-    Serial.println("State_Init::enter");
+    Serial.println("State_Error::enter");
     ctx.display.clear();
-    ctx.display.formatLine<0>("state: init");
+    ctx.display.formatLine<0>("state: ERROR");
   }
 
   template<typename FSM>
   void leave([[maybe_unused]] FSM& fsm, Context& ctx) {
-    Serial.println("State_Init::leave");
+    Serial.println("State_Error::leave");
   }
 
   template<typename FSM>
-  void run(FSM& fsm, [[maybe_unused]] Context& ctx) {
-    Serial.println("Let's go boys. Doing my job.");
-    fsm.template setNextState<State_WaitNetwork>();
-  }
+  void run([[maybe_unused]] FSM& fsm, [[maybe_unused]] Context& ctx) {}
 };
 
 } // namespace app

@@ -8,6 +8,8 @@
 
 #include "Context.h"
 #include "FSM.h"
+#include "State_Error.h"
+#include "State_Flooding.h"
 #include "State_Idle.h"
 #include "State_Init.h"
 #include "State_WaitNetwork.h"
@@ -16,7 +18,7 @@ namespace app {
 
 class Hydro {
 private:
-  using FSM = mymk::FSM<State_Init, State_WaitNetwork, State_Idle>;
+  using FSM = mymk::FSM<State_Init, State_WaitNetwork, State_Idle, State_Flooding, State_Error>;
 
   Context context_;
   FSM fsm_;

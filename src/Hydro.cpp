@@ -41,8 +41,6 @@ void Hydro::setup() {
 void Hydro::loop() {
   // handle wifi manager
   context_.wifiManager.process();
-  // update time from ntp
-  context_.timeClient.update();
   // Run fsm state
   fsm_.run(context_);
   // refresh display

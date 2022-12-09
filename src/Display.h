@@ -34,6 +34,12 @@ public:
     buffer_[N] = fmt::format(std::forward<Ts>(args)...);
   }
 
+  void clear() {
+    for (auto& line : buffer_) {
+      line = std::string();
+    }
+  }
+
   void setup();
   void refresh();
 };
